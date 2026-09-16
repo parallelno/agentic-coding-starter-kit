@@ -97,8 +97,8 @@ Track progress here. `Implementing`/`Done`/`Blocked` per task.
 
 | # | Task | Wave | File | Status |
 |---|------|------|------|--------|
-| 01 | Config &amp; Quality Tiers | 1 | [tasks/task-01-config.md](tasks/task-01-config.md) | ☐ Not started |
-| 02 | Event Bus | 1 | [tasks/task-02-event-bus.md](tasks/task-02-event-bus.md) | ☐ Not started |
+| 01 | Config &amp; Quality Tiers | 1 | [tasks/task-01-config.md](tasks/task-01-config.md) | ✅ Done |
+| 02 | Event Bus | 1 | [tasks/task-02-event-bus.md](tasks/task-02-event-bus.md) | ✅ Done |
 | 03 | Grid Math | 2 | [tasks/task-03-grid.md](tasks/task-03-grid.md) | ☐ Not started |
 | 04 | Renderer | 2 | [tasks/task-04-renderer.md](tasks/task-04-renderer.md) | ☐ Not started |
 | 05 | Audio (procedural) | 2 | [tasks/task-05-audio.md](tasks/task-05-audio.md) | ☐ Not started |
