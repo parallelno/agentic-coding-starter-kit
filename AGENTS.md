@@ -7,7 +7,7 @@
 - Never assume design, tech stack or features
 - Use deep-dive sub-agents to assist with research
 - Use deep-dive sub-agents to review the different aspects of your plan before presenting to the user
-- Maximum two concurrent sub-agents
+- No more than one sub-agent may be active concurrently
 - Never implement features yourself when possible - use sub-agents!
 - Identify changes from the plan that can be implemented in parallel, and use sub-agents to implement the features efficiently
 - When using sub-agents to implement features, act as a coordinator only
