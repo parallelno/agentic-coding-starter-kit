@@ -99,10 +99,10 @@ Track progress here. `Implementing`/`Done`/`Blocked` per task.
 |---|------|------|------|--------|
 | 01 | Config &amp; Quality Tiers | 1 | [tasks/task-01-config.md](tasks/task-01-config.md) | ✅ Done |
 | 02 | Event Bus | 1 | [tasks/task-02-event-bus.md](tasks/task-02-event-bus.md) | ✅ Done |
-| 03 | Grid Math | 2 | [tasks/task-03-grid.md](tasks/task-03-grid.md) | ☐ Not started |
-| 04 | Renderer | 2 | [tasks/task-04-renderer.md](tasks/task-04-renderer.md) | ☐ Not started |
-| 05 | Audio (procedural) | 2 | [tasks/task-05-audio.md](tasks/task-05-audio.md) | ☐ Not started |
-| 06 | Leaderboard | 2 | [tasks/task-06-leaderboard.md](tasks/task-06-leaderboard.md) | ☐ Not started |
+| 03 | Grid Math | 2 | [tasks/task-03-grid.md](tasks/task-03-grid.md) | ✅ Done |
+| 04 | Renderer | 2 | [tasks/task-04-renderer.md](tasks/task-04-renderer.md) | ✅ Done |
+| 05 | Audio (procedural) | 2 | [tasks/task-05-audio.md](tasks/task-05-audio.md) | ✅ Done |
+| 06 | Leaderboard | 2 | [tasks/task-06-leaderboard.md](tasks/task-06-leaderboard.md) | ✅ Done |
 | 07 | Input | 3 | [tasks/task-07-input.md](tasks/task-07-input.md) | ☐ Not started |
 | 08 | Snake (data) | 3 | [tasks/task-08-snake.md](tasks/task-08-snake.md) | ☐ Not started |
 | 09 | Arena | 3 | [tasks/task-09-arena.md](tasks/task-09-arena.md) | ☐ Not started |
