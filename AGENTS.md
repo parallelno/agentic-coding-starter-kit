@@ -1,26 +1,12 @@
-# CRITICAL RULES - MUST FOLLOW
+# Working Rules
 
-## RESPONSES
-
-- Keep responses concise and to the point.
-- Always ask clarifying questions
-- Never assume design, tech stack or features
-- Use deep-dive sub-agents to assist with research
-- Use deep-dive sub-agents to review the different aspects of your plan before presenting to the user
-- No more than one sub-agent may be active concurrently
-- Never implement features yourself when possible - use sub-agents!
-- Identify changes from the plan that can be implemented in parallel, and use sub-agents to implement the features efficiently
-- When using sub-agents to implement features, act as a coordinator only
-- After completing features (large or small), always run commands like lint, type check and next build to check code quality
-- Use workspace `temp` folder for temporary files. Create if needed.
-- Use workspace `tests` folder for test files. Create if needed.
-- If the workspace is not a Git repository, run git init
-- Prefer testing over speculation
-- After two rounds of doubt, stop theorizing and test
-- Ignore opencode.json.
-
-## TESTING
-
-- Use any testing tools, libraries available to the project for testing your changes
-- Never assume your changes simply work, always test!
-- If the project does not have any testing tools, scripts, MCP tools, skills, etc. available for testing, ask the user whether testing should be skipped
+- Keep responses and tool output concise; report decisions, blockers, and verification.
+- Ask only about unresolved requirements, risky actions, or genuine blockers. Reuse established decisions.
+- For spec planning/execution, load the matching skill once. Follow its autonomous loop through completion; do not pause after each task or wave.
+- At most one subagent may be active. Delegate spec implementation and independent review as the execution skill directs; do routine reads, commands, and bookkeeping directly.
+- Read only the current task and relevant dependencies. Batch independent reads; do not reread unchanged files or paste documents into dispatch prompts.
+- Prefer a focused test over repeated speculation. Preserve acceptance criteria; do not weaken tests to make an implementation pass.
+- Run applicable behavior checks and repository-required gates. Syntax checks alone do not prove runtime or visual behavior. Report unavailable checks as unverified, never passed.
+- Preserve unrelated work. Do not stage broadly, commit, initialize Git, or change branches unless requested.
+- Reuse existing test locations; otherwise use `tests/` for durable tests and `temp/` for scratch files.
+- Ignore `opencode.json`.

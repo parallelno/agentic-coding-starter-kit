@@ -1,46 +1,19 @@
-# Coder Agent Prompt Template
+# Coder Dispatch
 
-Use this template when constructing prompts for coder subagents. Replace the placeholders (`{requirements}`, `{completed_tasks_summary}`, `{task_content}`) with actual content from the spec files.
+Fill placeholders with paths and short facts, not document bodies. Read this template once per execution.
 
-## Template
+```text
+Implement this bounded batch. Do not delegate, load orchestration skills, commit, or change spec status.
 
+Tasks: {task_paths}
+Owned implementation/test paths: {owned_paths}
+Relevant shared contracts: {contract_paths_and_sections}
+Checks: {verification_commands_or_discovery_paths}
+Pre-existing work and constraints: {relevant_worktree_notes}
+
+Read the assigned tasks once and inspect the dependency APIs and nearby tests they use. Resolve missing context through targeted reads, not the full spec/history. Existing pending implementation must be inspected and tested before editing.
+
+Implement every acceptance criterion, including regression/edge-case tests. Reuse repository patterns and test tooling. Validate the first substantive edit with a focused check; repair locally before widening scope. Run task-scoped checks, distinguishing syntax, behavioral, and visual evidence. Use an isolated harness for module checks when the app is not wired yet. Report whole-app checks assigned to the final gate as pending, never passed. Do not weaken a test or contract to get a pass. Stop on a material spec conflict or required scope expansion.
+
+Return per task: PASS/FAIL/BLOCKED; changed paths; criterion-to-test/check evidence; exact commands and results; unresolved risks. Aim for 200 words total on success, with no code/file dumps. Include all actionable failure details. PASS here means ready for independent review, not completion.
 ```
-You are implementing a single task from a feature specification. Your job is to write the code described below — nothing more, nothing less.
-
-## Feature Context
-
-{requirements}
-
-## What's Already Been Built
-
-{completed_tasks_summary}
-
-## Your Task
-
-{task_content}
-
-## Instructions
-
-1. Read the relevant parts of the codebase to understand existing patterns, imports, and conventions
-2. Implement everything described in the task's Technical Details and Implementation Steps
-3. Follow the project's existing code patterns and conventions
-4. Run the project's lint and typecheck commands after making changes. Fix any errors before finishing.
-5. Do NOT commit your changes — the orchestrator handles commits after review
-6. When done, report:
-   - Files created (with paths)
-   - Files modified (with paths)
-   - A one-paragraph summary of what you implemented
-```
-
-## Placeholder Details
-
-- **{requirements}**: paste the full text of `requirements.md`. This gives the agent overall feature context — the "what" and "why" — so it can make good judgment calls during implementation.
-
-- **{completed_tasks_summary}**: for each previously completed task, include a brief summary like:
-  ```
-  - task-01-setup-database: Created PostgreSQL schema with users and sessions tables. Files: src/db/schema.ts, src/db/migrations/001_initial.sql
-  - task-02-auth-config: Set up Better Auth with email/password provider. Files: src/lib/auth.ts, src/lib/auth-client.ts
-  ```
-  Keep each entry to 1-2 lines. The purpose is to give the agent awareness of what exists, not full implementation details.
-
-- **{task_content}**: paste the full text of the task file (task-{nn}-{name}.md). This is the agent's primary instruction set — it contains the description, technical details, files to create/modify, and acceptance criteria.
