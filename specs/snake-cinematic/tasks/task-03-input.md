@@ -17,8 +17,9 @@ and swipe mapping) is unit-testable with a fake document; no engine/three import
   `{type:'turn', dir:{c,r}}`, `{type:'start'}`, `{type:'pause'}`, `{type:'mute'}`.
 - Key mapping (per R-INPUT-01): `ArrowUp→{c:0,r:-1}`, `ArrowDown→{c:0,r:1}`,
   `ArrowLeft→{c:-1,r:0}`, `ArrowRight→{c:1,r:0}`; `KeyW/A/S/D` identical.
-  `Space`/`Enter` → `start`. `Space`/`KeyP` → `pause` (deduped with Space so one
-  press never emits both types). `KeyM` → `mute`.
+  `Space`/`Enter` → `start`. `KeyP` → `pause` (Space/Enter are exclusively
+  start and never emit pause on the same key; one physical key-press emits at
+  most one event). `KeyM` → `mute`.
 - Swipe (per R-INPUT-02): track pointer start on `pointerdown`; on
   `pointerup`, compute dx/dy from CSS pixels; if `max(|dx|,|dy|) >= 24` and one
   axis dominates by 1.5x (or the other axis < 8 px), emit one `turn` for that
