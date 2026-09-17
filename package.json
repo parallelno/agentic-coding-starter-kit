@@ -1,0 +1,11 @@
+{
+  "name": "snake-cinematic",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"tests/*.test.mjs\""
+  },
+  "devDependencies": {
+    "three": "^0.186.0"
+  }
+}
