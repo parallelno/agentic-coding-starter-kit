@@ -1,22 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SNAKE — Cinematic Edition</title>
-  <link rel="stylesheet" href="js/style.css" />
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "./node_modules/three/build/three.module.js",
-        "three/addons/": "./node_modules/three/examples/jsm/"
-      }
-    }
-  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>SNAKE — Cinematic Edition</title>
+<!--
+  Thin layer by design: all logic lives in js/.
+  No build step — bare ES modules via import maps (jsDelivr CDN).
+-->
+<style>
+  html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #0e0d0a; }
+  #scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+  #score {
+    position: fixed; top: 14px; left: 16px; z-index: 10;
+    font: 600 22px/1 system-ui, "Segoe UI", sans-serif; color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,.6); letter-spacing: .04em;
+    user-select: none; pointer-events: none;
+  }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/",
+    "postprocessing": "https://cdn.jsdelivr.net/npm/postprocessing@6.39.5/build/postprocessing.esm.js"
+  }
+}
+</script>
 </head>
 <body>
-  <div id="hud"></div>
-  <canvas id="game"></canvas>
+  <canvas id="scene"></canvas>
+  <div id="score">0</div>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

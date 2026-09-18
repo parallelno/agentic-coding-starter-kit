@@ -21,5 +21,27 @@ done.
 
 ## Prerequisites
 
+### Plan
+
+- Plan must have multiple milestones.
+- Plan must contain the implementation checklist section at the end for the user verification.
+- Each milestone except scafolding must be playable and testable.
+- The architecture must be easy modular, maintanable, clean.
+
+### Art
+
+- Find texturtes and meshes in the Internet.
+
+### Implementation
+
 - JavaScript.
 - `index.html` is a thin layer. All logic lives in `js/`.
+- Use libraries, do not reinvent the wheel.
+- Store screenshots of each milestone into `results/screenshots/`
+- Store short implementation summary of each milestone into `results/impl_log/`
+
+### Game
+
+- Game must have a welcome screen with Game, Settings, Leaderboard, Quit settings with snake chasing apples on the background.
+- One level.
+- The end shows a popup window with score, and menu: Menu, Restart.
