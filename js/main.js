@@ -184,14 +184,19 @@ export function boot(opts = {}) {
   }
 
   // --- Renderer + camera resize. The engine owns `graphics.size` and calls
-  //     it on `resize()`; we forward the window size there.
+  //     it on `resize()`; we forward the window size there. No args means
+  //     "current window size", which graphics maps to native resolution
+  //     (window × devicePixelRatio) via the renderer's pixel ratio.
   const onResize = () => {
-    engine.resize(
-      window.innerWidth || canvas.width,
-      window.innerHeight || canvas.height,
-    );
+    const w = (typeof window !== 'undefined' && window.innerWidth) || canvas.width;
+    const h = (typeof window !== 'undefined' && window.innerHeight) || canvas.height;
+    engine.resize(w, h);
   };
   if (typeof window !== 'undefined') window.addEventListener('resize', onResize);
+  // Size the buffer to the native screen resolution up front. Without this
+  // the canvas keeps its initial internal size (tiny) until the first window
+  // resize event, so the first frames render low-res and get upscaled.
+  onResize();
 
   // --- Main RAF loop. The engine drives all ticks via its accumulator;
   //     main.js only feeds dt and calls engine.update() once per frame.

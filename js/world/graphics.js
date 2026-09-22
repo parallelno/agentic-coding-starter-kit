@@ -62,11 +62,12 @@ export function createRealGraphics({ canvas, camera, rig, tier }) {
     antialias: true,
     powerPreference: 'high-performance',
   });
-  // R-PERF-01: pixelRatio = min(devicePixelRatio, tierCap). On HiDPI screens
-  // this caps the render resolution at the tier ceiling; on low-DPI displays
-  // it avoids supersampling beyond the physical pixels.
+  // Native screen resolution (R-PERF-01): render at the full device pixel
+  // ratio so the buffer matches the physical pixels — no upscaling blur on
+  // HiDPI displays. Quality tiers no longer cap resolution; they continue to
+  // govern the FX stack (composer/shadows/dust) for performance.
   const dpr = typeof window !== 'undefined' && window.devicePixelRatio ? window.devicePixelRatio : 1;
-  renderer.setPixelRatio(Math.min(dpr, tier.pixelRatio));
+  renderer.setPixelRatio(dpr);
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
