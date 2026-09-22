@@ -1,25 +1,43 @@
-# SNAKE — Cinematic Edition: Design Document
+# Cloth Simulator
 
-## Vision
+A simple 3D cloth physics sandbox where players can interact with realistic fabric in real time. The cloth can be grabbed, stretched, torn, soaked with water, and affected by physical forces. The experience focuses on experimentation and realistic simulation rather than objectives or progression.
 
-A classic top-down Snake game reimagined as a cinematic real-time 3D scene:
-a sunlit arena with PBR materials, drifting environmental dust, a living
-water pond that is an actual gameplay hazard, event-driven camera shake, and
-a filmic post-processing grade. No asset pipeline, no build step — everything
-procedural.
+## Gameplay
 
-**Quality bar:** 60 fps desktop / 30 fps mid-range mobile under the quality
-tiers. The game must be *playable first* before any visual system is considered
-done.
+The scene contains one hanging cloth object inside a small 3D environment. Players are free to interact with the fabric and observe how it responds to different forces.
 
-## Non-goals
+## Features
 
-- No multiple arenas, no level editor, no multiplayer.
-- No backend, no accounts — leaderboard is local (`localStorage`) behind a provider interface.
-- No external assets: every texture, environment map, and sound is generated in code.
-- "Cinematic" means lighting, camera language, particles, and post grade — not cutscenes or scripted sequences.
+### Interactive Cloth
+- The cloth is a white bed sheet.
+- The cloth top corners are fixed and do not move.
+- Grab any point on the cloth.
+- Pull, stretch, twist, and swing the fabric.
+- Create folds and wrinkles through direct interaction.
 
-## Prerequisites
+### Tearing
+- Pull hard enough to rip the cloth.
+- Small tears can grow larger under stress.
+- Cloth can split into separate pieces.
 
-- JavaScript.
-- `index.html` is a thin layer. All logic lives in `js/`.
+### Water Hose
+- Spray water onto the fabric.
+- Water pushes and deforms the cloth.
+- Cloth reacts to the impact of the spray.
+- Existing tears can expand under water pressure.
+
+### Wetness
+- Cloth absorbs water.
+- Wet fabric becomes heavier and darker.
+- Heavy sections sag and move more slowly.
+- Uneven wetness creates realistic imbalance.
+
+### Camera
+- Orbit around the scene.
+- Pan across the environment.
+- Zoom in for close inspection.
+- Zoom out for a full view.
+
+## Goal
+
+There is no score or objective. The cloth itself is the main playground, allowing players to experiment with tearing, water interaction, and realistic fabric physics from any angle.
