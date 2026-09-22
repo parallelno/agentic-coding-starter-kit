@@ -1,5 +1,10 @@
 # Agentic Coding Starter Kit
 
+## Model
+
+- DeepSeek-v4.1-Flash
+- Implementation time: 2h 45m
+
 Skills for planning features and executing their specs autonomously, with
 bounded coding batches and independent quality gates.
 
