@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cloth Simulator</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./node_modules/three/build/three.module.js",
+          "three/addons/": "./node_modules/three/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="hint">
+      LMB grab (grab mode) / spray (hose mode)<br />
+      RMB pan &middot; wheel zoom &middot; H switch mode &middot; P screenshot (?debug=1)
+    </div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
